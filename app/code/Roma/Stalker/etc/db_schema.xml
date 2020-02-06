@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="stalker_table" resource="default" engine="innodb" comment="Stalker Table! Declarative">
+        <column xsi:type="smallint" name="entity_id" padding="6" unsigned="false" nullable="false" identity="true" comment="Stalker Entity ID"/>
+        <column xsi:type="varchar" name="nickname" nullable="false" length="64" comment="Stalker Nickname"/>
+        <column xsi:type="varchar" name="grouping" nullable="false" length="64" comment="Stalker Grouping"/>
+        <column xsi:type="text" name="name" nullable="true" comment="Stalker Name"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Stalker entity created at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="STALKER_TABLE_NICKNAME">
+            <column name="nickname"/>
+        </constraint>
+    </table>
+    <table name="artifacts_table" resource="default" engine="innodb" comment="Artifacts Declarative Table">
+        <column xsi:type="int" name="entity_id" padding="11" unsigned="false" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="smallint" name="stalker_id" padding="6" unsigned="false" nullable="false" identity="false" comment="Stalker ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="64" comment="Artifacts title"/>
+        <column xsi:type="text" name="description" nullable="true" comment="Description"/>
+        <column xsi:type="datetime" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Artifacts entity created at"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="ARTIFACTS_TABLE_STALKER_ID" table="artifacts_table" column="stalker_id" referenceTable="stalker_table" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="unique" referenceId="ARTIFACTS_TABLE_STALKER_ID_TITLE">
+            <column name="title"/>
+        </constraint>
+    </table>
+</schema>

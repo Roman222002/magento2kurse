@@ -1,0 +1,24 @@
+<?php
+use Roma\Stalker\Model\StalkerModel;
+
+/**
+ * @var \Roma\Stalker\Block\Stalker $block
+ */
+$blockName=$block->getInLayout();
+
+$stalkerCollections = $block->getStalkerCollection();
+?>
+<h1 class="my-block">Stalker shop!</h1>
+<div class="container">
+    <?php foreach ($stalkerCollections as $stalker): ?>
+    <?php /** @var StalkerModel $stalker */ ?>
+    <div class="stalker-id-<?=$stalker->getId() ?>">
+        <h4 class="entity-id">EntityId: <?=$stalker->getId() ?></h4>
+        <h3 class="nickname">Nickname: <?=$stalker->getNickname() ?></h3>
+        <h5 class="grouping">Grouping: <?=$stalker->getGrouping() ?></h5>
+        <h6 class="name">Name: <?=$stalker->getName() ?></h6>
+        <h4 class="created-at">CreatedAt: <?=$stalker->getCreatedAt() ?></h4>
+        </h4>
+</div>
+    <?php endforeach; ?>
+</div>

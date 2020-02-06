@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/test/stalkers/service/:stalkerId" method="GET">
+        <service class="Roma\Stalker\Api\StalkerServiceInterface" method="getStalkerList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/save/stalkers/service/:stalkerId/word" method="POST">
+    <service class="Roma\Stalker\Api\StalkerServiceInterface" method="setStalker"/>
+    <resources>
+        <resource ref="anonymous"/>
+    </resources>
+</route>
+</routes>
