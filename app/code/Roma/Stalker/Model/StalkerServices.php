@@ -74,10 +74,12 @@ class StalkerServices implements StalkerServiceInterface
 
     /**
      * @param $stalkerId
-     * @param $word
-     * @return string
+     * @param $grouping
+     * @param $nickname
+     * @param $name
+     * @return mixed
      */
-    public function setStalker($stalkerId, $word)
+    public function setStalker($stalkerId, $grouping, $nickname, $name)
     {
             /** @var SearchCriteria $searchCriteria */
             $searchCriteria = $this->searchCriteriaBuilder
@@ -89,8 +91,10 @@ class StalkerServices implements StalkerServiceInterface
         /** @var StalkerInterface[] $item */
         $items = $searchResults->getItems();
         $item = array_shift($items);
-        $item->setNickname($word);
+        $item->setGrouping($grouping);
+        $item->setNickname($nickname);
+        $item->setName($name);
         $this->stalkerRepository->save($item);
-        return $stalkerId . ' '. $word;
+        return $stalkerId;
     }
 }

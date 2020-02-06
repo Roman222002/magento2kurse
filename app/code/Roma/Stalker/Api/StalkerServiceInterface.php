@@ -13,9 +13,11 @@ interface StalkerServiceInterface
     public function getStalkerList($stalkerId);
 
     /**
-     * @param int $stalkerId
-     * @param string $word
+     * @param $stalkerId
+     * @param $grouping
+     * @param $nickname
+     * @param $name
      * @return mixed
      */
-    public function  setStalker($stalkerId, $word);
+    public function  setStalker($stalkerId, $grouping, $nickname, $name);
 }

@@ -6,7 +6,7 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
-    <route url="/V1/save/stalkers/service/:stalkerId/word" method="POST">
+    <route url="/V1/save/stalkers/service/:stalkerId/grouping/nickname/name" method="POST">
     <service class="Roma\Stalker\Api\StalkerServiceInterface" method="setStalker"/>
     <resources>
         <resource ref="anonymous"/>
