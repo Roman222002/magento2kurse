@@ -89,6 +89,9 @@ class StalkerServices implements StalkerServiceInterface
         /** @var SearchResultsInterface $searchResults */
         $searchResults = $this->stalkerRepository->getList($searchCriteria);
         /** @var StalkerInterface[] $item */
+        if ($searchResults->getTotalCount() == 0||$stalkerId==0){
+            
+        }
         $items = $searchResults->getItems();
         $item = array_shift($items);
         $item->setGrouping($grouping);

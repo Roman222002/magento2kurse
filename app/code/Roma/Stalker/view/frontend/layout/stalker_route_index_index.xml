@@ -4,5 +4,9 @@
         <referenceContainer name="main">
             <block class="Roma\Stalker\Block\Stalker" name="custom.block" template="Roma_Stalker::main-stalker-template.phtml"/>
         </referenceContainer>
+
+        <referenceContainer name="product.info.details">
+            <block class="Roma\Stalker\Block\Stalker" name="custom.block2" template="Roma_Stalker::main-stalker-template.phtml"/>
+        </referenceContainer>
     </body>
 </page>
