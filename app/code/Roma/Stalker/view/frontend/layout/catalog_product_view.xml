@@ -7,10 +7,9 @@
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="product.info.media">
 
-        <referenceContainer name="product.info.details">
-            <block class="Roma\Stalker\Block\Stalker" name="custom.block1" template="Roma_Stalker::main-stalker-template.phtml"/>
-
+            <block class="Roma\Stalker\Block\Stalker" name="custom.block.to.desk" template="Roma_Stalker::main-stalker-template.phtml" after="product.attributes"/>
         </referenceContainer>
     </body>
 </page>
