@@ -2,7 +2,18 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block class="Roma\Stalker\Block\Stalker" name="custom.block" template="Roma_Stalker::main-stalker-template.phtml"/>
+            <block class="Roma\Stalker\Block\Stalker" name="custom.block" template="Roma_Stalker::main-stalker-template.phtml" before="-"/>
+            <container name="main.additional" htmlTag="div" htmlClass="column main" before="main">
+                <block class="Magento\Framework\View\Element\Template" name="custom.block_origin" template="Roma_Stalker::simple_template.phtml"/>
+            </container>
         </referenceContainer>
+        
+        <move element="custom.block" destination="div.sidebar.main" />
+
+        <container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">
+            <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional"/>
+            <block class="Magento\Framework\View\Element\Template" name="custom.block_origin1" template="Roma_Stalker::simple_template.phtml"/>
+        </container>
+
     </body>
 </page>

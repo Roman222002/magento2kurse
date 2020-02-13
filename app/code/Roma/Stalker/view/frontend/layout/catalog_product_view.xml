@@ -9,7 +9,7 @@
     <body>
         <referenceContainer name="product.info.media">
 
-            <block class="Roma\Stalker\Block\Stalker" name="custom.block.to.desk" template="Roma_Stalker::main-stalker-template.phtml" after="product.attributes"/>
+            <block class="Roma\Stalker\Block\Stalker" name="custom.block.to.desk" template="Roma_Stalker::main-stalker-template.phtml" after="-"/>
         </referenceContainer>
     </body>
 </page>
