@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Roma_Stalker::roma_main" title="Stalkers and Artifacts" translate="title" sortOrder="20">
+                    <resource id="Roma_Stalker::roma_manage_stalkers" title="My All Stalkers" translate="title" sortOrder="10">
+                        <resource id="Roma_Stalker::roma_manage_stalkers_actions" title="Actions" translate="title" sortOrder="10">
+                            <resource id="Roma_Stalker::stalker_add" title="Add Stalker" translate="title" sortOrder="10" />
+                            <resource id="Roma_Stalker::stalker_edit" title="Edit Stalker" translate="title" sortOrder="20" />
+                            <resource id="Roma_Stalker::stalker_mass_delete" title="Mass Delete Stalker" translate="title" sortOrder="30" />
+                            <resource id="Roma_Stalker::stalker_delete" title="Delete Stalker" translate="title" sortOrder="40" />
+                        </resource>
+                    </resource>
+                    <resource id="Roma_Test::roma_manage_artifacts" title="My All Artifacts" translate="title" sortOrder="10">
+                        <resource id="Roma_Stalker::roma_manage_artifacts_actions" title="Actions" translate="title" sortOrder="10">
+                            <resource id="Roma_Stalker::car_add" title="Add Artifact" translate="title" sortOrder="10" />
+                            <resource id="Roma_Stalker::car_edit" title="Edit Artifact" translate="title" sortOrder="20" />
+                            <resource id="Roma_Stalker::car_mass_delete" title="Mass Delete Artifacts" translate="title" sortOrder="30" />
+                            <resource id="Roma_Stalker::car_delete" title="Delete Artifact" translate="title" sortOrder="40" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

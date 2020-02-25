@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Roma_Stalker::greetings" title="Greetings" translate="title" module="Roma_Stalker" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Roma_Stalker" resource="Roma_Stalker::greetings"/>
+        <add id="Roma_Stalker::greetings_helloworld" title="Hello World" translate="title" module="Roma_Stalker" parent="Roma_Stalker::greetings" sortOrder="10" dependsOnModule="Roma_Stalker" action="exampleadminnewpage/helloworld" resource="Roma_Stalker::greetings"/>
+
+        <add id="Roma_Stalker::roma" title="Artifacts shop" translate="title" module="Roma_Stalker" sortOrder="10" resource="Roma_Stalker::roma_main"/>
+        <add id="Roma_Stalker::roma_manage_stalkers" title="Manage Stalkers" translate="title" module="Roma_Stalker" sortOrder="10" parent="Roma_Stalker::roma" action="my_admin/stalkers/index" resource="Roma_Stalker::roma_manage_stalkers"/>
+        <add id="Roma_Stalker::roma_manage_artifacts" title="Manage Artifacts" translate="title" module="Roma_Stalker" sortOrder="20" parent="Roma_Stalker::roma" action="my_admin/artifacts/index" resource="Roma_Stalker::roma_manage_artifacts"/>
+    </menu>
+</config>
