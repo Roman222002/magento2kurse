@@ -12,7 +12,7 @@
                             <resource id="Roma_Stalker::stalker_delete" title="Delete Stalker" translate="title" sortOrder="40" />
                         </resource>
                     </resource>
-                    <resource id="Roma_Test::roma_manage_artifacts" title="My All Artifacts" translate="title" sortOrder="10">
+                    <resource id="Roma_Stalker::roma_manage_artifacts" title="My All Artifacts" translate="title" sortOrder="10">
                         <resource id="Roma_Stalker::roma_manage_artifacts_actions" title="Actions" translate="title" sortOrder="10">
                             <resource id="Roma_Stalker::car_add" title="Add Artifact" translate="title" sortOrder="10" />
                             <resource id="Roma_Stalker::car_edit" title="Edit Artifact" translate="title" sortOrder="20" />

@@ -1,0 +1,31 @@
+<?php
+use Roma\Stalker\Model\ArtefactsModel;
+
+/**
+ * @var \Roma\Stalker\Block\Artifact $block
+ */
+$artefactCollection = $block->getArtifactsCollection();
+$sqlString = $artefactCollection->getSelect()->__toString();
+?>
+
+<h1 class="my-block">My Custom Artifacts Collection:</h1>
+<h1 class="sql-query">Query was:
+    <p style="color:red"><?= $sqlString ?></p>
+</h1>
+
+<div class="container">
+    <?php if ($artefactCollection): ?>
+        <?php foreach ($artefactCollection as $artefact): ?>
+            <?php /** @var ArtefactsModel $artefact */ ?>
+            <div class="artifact-id-<?= $artefact->getId() ?>">
+                <h4 class="entity-id">EntityId: <?= $artefact->getId() ?></h4>
+                <h5 class="stalker-id">StalkerId: <?= $artefact->getStalkerId() ?></h5>
+                <h6 class="description">SomeId: <?= $artefact->getDescription() ?></h6>
+                <h6 class="title">CarId: <?= $artefact->getTitle() ?></h6>
+                <p class="link">
+                    <a class="go-back" href="<?= $block->getUrl('stalker_route') ?>">Go Back</a>
+                </p>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>
