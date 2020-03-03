@@ -8,5 +8,21 @@
                 type="Roma\Stalker\Model\StalkerServices"/>
     <preference for="Roma\Test\Api\Data\ArtifactsInterface"
                 type="Roma\Test\Model\ArtefactsModel"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="roma_stalker_listing_data_source" xsi:type="string">Roma\Stalker\Model\ResourceModel\Artefacts\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Roma\Stalker\Model\ResourceModel\Artefacts\Grid\Collection" type="Roma\Stalker\Model\ResourceModel\GridCollectionUniversal">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">artifacts_table</argument>
+            <argument name="eventPrefix" xsi:type="string">roma_stalker_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">roma_stalker_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Roma\Stalker\Model\ResourceModel\Artefacts</argument>
+        </arguments>
+    </virtualType>
+
 
 </config>
