@@ -75,7 +75,7 @@
             </argument>
             <settings>
                 <validation>
-                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                    <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
                 </validation>
                 <dataType>text</dataType>
                 <label translate="true">Title</label>

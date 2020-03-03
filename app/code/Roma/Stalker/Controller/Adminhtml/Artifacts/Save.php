@@ -1,5 +1,6 @@
 <?php
-namespace Roma\Test\Controller\Adminhtml\Cars;
+
+namespace Roma\Stalker\Controller\Adminhtml\Artifacts;
 
 use Magento\Backend\App\Action as BackendAction;
 use Magento\Backend\App\Action\Context;

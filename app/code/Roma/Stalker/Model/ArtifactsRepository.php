@@ -1,8 +1,8 @@
 <?php
+
 namespace Roma\Stalker\Model;
 
 use Magento\Framework\Api\SearchResults;
-use Magento\Framework\Api\SearchResultsInterface;
 use Magento\Framework\Api\SearchResultsInterfaceFactory;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
@@ -11,8 +11,7 @@ use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Roma\Stalker\Api\ArtifactsRepositoryInterface;
 use Roma\Stalker\Api\Data\ArtifactsInterface;
-use Roma\Stalker\Model\ArtifactsModelFactory;
-use Roma\Stalker\Model\ResourceModel\Artefacts;
+use Roma\Stalker\Model\ArtefactsModelFactory;
 use Roma\Stalker\Model\ResourceModel\Artefacts\Collection;
 use Roma\Stalker\Model\ResourceModel\Artefacts\CollectionFactory as ArtifactsCollectionFactory;
 use Roma\Stalker\Model\ResourceModel\Artefacts as ArtifactsResource;
@@ -23,7 +22,7 @@ use Roma\Stalker\Model\ResourceModel\Artefacts as ArtifactsResource;
 class ArtifactsRepository implements ArtifactsRepositoryInterface
 {
     /**
-     * @var ArtifactsModelFactory
+     * @var ArtefactsModelFactory
      */
     private $artifactsModelFactory;
 
@@ -48,18 +47,18 @@ class ArtifactsRepository implements ArtifactsRepositoryInterface
     private $collectionProcessor;
 
     /**
-     * @param ArtifactsModelFactory $artifactsModelFactory
+     * @param ArtefactsModelFactory $artifactsModelFactory
      * @param ArtifactsCollectionFactory $artifactsCollectionFactory
      * @param ArtifactsResource $resource
      * @param SearchResultsInterfaceFactory $searchResultsFactory
      * @param CollectionProcessorInterface $collectionProcessor
      */
     public function __construct(
-        ArtifactsModelFactory $artifactsModelFactory,
-      ArtifactsCollectionFactory $artifactsCollectionFactory,
-     ArtifactsResource $resource,
-      SearchResultsInterfaceFactory $searchResultsFactory,
-      CollectionProcessorInterface $collectionProcessor
+        ArtefactsModelFactory $artifactsModelFactory,
+        ArtifactsCollectionFactory $artifactsCollectionFactory,
+        ArtifactsResource $resource,
+        SearchResultsInterfaceFactory $searchResultsFactory,
+        CollectionProcessorInterface $collectionProcessor
     ) {
         $this->artifactsModelFactory = $artifactsModelFactory;
         $this->artifactsCollectionFactory = $artifactsCollectionFactory;
@@ -104,7 +103,7 @@ class ArtifactsRepository implements ArtifactsRepositoryInterface
     public function getList(SearchCriteriaInterface $criteria): SearchResults
     {
         /** @var Collection $collection */
-        $collection = $this->carCollectionFactory->create();
+        $collection = $this->artifactsCollectionFactory->create();
         $this->collectionProcessor->process($criteria, $collection);
 
         /** @var SearchResults $searchResults */
@@ -121,8 +120,8 @@ class ArtifactsRepository implements ArtifactsRepositoryInterface
     public function delete(ArtifactsInterface $artifacts): bool
     {
         try {
-            /** @var ArtefactsModel $artefacts */
-            $this->resource->delete($artefacts);
+            /** @var ArtefactsModel $artifacts */
+            $this->resource->delete($artifacts);
         } catch (\Exception $exception) {
             throw new CouldNotDeleteException(__($exception->getMessage()));
         }
