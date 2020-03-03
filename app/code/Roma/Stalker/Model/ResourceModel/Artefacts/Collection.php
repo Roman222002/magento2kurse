@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Stalker\Model\ResourceModel\Artefacts;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
