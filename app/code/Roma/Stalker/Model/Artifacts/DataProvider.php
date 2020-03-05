@@ -5,6 +5,7 @@ use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\UrlInterface;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 use Roma\Stalker\Api\Data\ArtifactsInterface;
+use Roma\Stalker\Model\ArtefactsModel;
 use Roma\Stalker\Model\ResourceModel\Artefacts\CollectionFactory as ArtifactsCollectionFactory;
 use Roma\Stalker\Model\ResourceModel\Artefacts\Collection as ArtifactsCollection;
 
@@ -87,14 +88,12 @@ class DataProvider extends AbstractDataProvider
     }
 
     /**
-     * @param ArtifactsInterface $artifacts
+     * @param ArtifactsInterface|ArtefactsModel $artifacts
      * @return array
      */
     private function prepareData($artifacts)
     {
         $data = $artifacts->getData();
-        return $data;
-
         return $data;
     }
 

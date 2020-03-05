@@ -4,6 +4,7 @@
                 type="Roma\Stalker\Model\StalkerRepository"/>
     <preference for="Roma\Stalker\Api\Data\StalkerInterface"
                 type="Roma\Stalker\Model\StalkerModel"/>
+
     <preference for="Roma\Stalker\Api\StalkerServiceInterface"
                 type="Roma\Stalker\Model\StalkerServices"/>
     <preference for="Roma\Stalker\Api\Data\ArtifactsInterface"
