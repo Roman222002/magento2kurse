@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <roma_stalker>
+            <settings_image>
+                <use_images>1</use_images>
+            </settings_image>
+            <settings_stalker_list>
+                <main_stalker>2</main_stalker>
+                <display_text>Enter text</display_text>
+            </settings_stalker_list>
+        </roma_stalker>
+        <roma_artifact>
+            <settings_artifacts_list>
+                <main_artifact>3</main_artifact>
+            </settings_artifacts_list>
+        </roma_artifact>
+    </default>
+</config>

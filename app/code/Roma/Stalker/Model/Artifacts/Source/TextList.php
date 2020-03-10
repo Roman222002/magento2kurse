@@ -16,7 +16,7 @@ use Roma\Stalker\Api\Data\StalkerInterface;
  * Class Theme
  */
 
-class StalkerList implements OptionSourceInterface
+class TextList implements OptionSourceInterface
 {
     /**
      * @var ArtInterfase

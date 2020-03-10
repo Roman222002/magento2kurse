@@ -1,2 +1,17 @@
+<?php
 
-<h1>Hello!</h1>
+
+use Roma\Stalker\ViewModel\ExtraInfo;
+use Roma\Stalker\ViewModel\TextInfo;
+
+/** @var ExtraInfo $viewModel */
+$viewModel = $block->getData('our_view_model');
+/** @var TextInfo $textModel */
+$textModel=$block->getData('our_text_model')
+?>
+<?php if ($viewModel->mainArt() === 4): ?>
+    <h1>Yes! Artifact 4 is the best!!</h1>
+<?php else: ?>
+    <h1>This art <?= $viewModel->mainArt() ?> is not best</h1>
+<?php endif; ?>
+<h1>Your input number text is: <?= $textModel->mainText()?></h1>

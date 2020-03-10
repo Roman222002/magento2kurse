@@ -6,17 +6,17 @@
 namespace Roma\Stalker\Model\Artifacts\Source;
 
 use Magento\Framework\Api\SearchResultsInterface;
-use Roma\Stalker\Api\StalkerRepositoryInterface as ArtInterfase;
+use Roma\Stalker\Api\ArtifactsRepositoryInterface as ArtInterfase;
 use Magento\Framework\Data\OptionSourceInterface;
 use Magento\Framework\Api\SearchCriteria;
 use Magento\Framework\Api\SearchCriteriaBuilder;
-use Roma\Stalker\Api\Data\StalkerInterface;
+use Roma\Stalker\Api\Data\ArtifactsInterface;
 
 /**
  * Class Theme
  */
 
-class StalkerList implements OptionSourceInterface
+class ArtifactsList implements OptionSourceInterface
 {
     /**
      * @var ArtInterfase
@@ -55,9 +55,9 @@ class StalkerList implements OptionSourceInterface
         $resultArray = [];
         if ($data->getTotalCount() > 0) {
             foreach ($data->getItems() as $item) {
-                /** @var StalkerInterface $item */
+                /** @var ArtifactsInterface $item */
                 $resultArray[] = [
-                    'label'=>'Id '.$item->getId().' '.$item->getName(),
+                    'label'=>'Id '.$item->getId().' '.$item->getTitle(),
                     'value' => $item->getId(),
                 ];
             }
