@@ -36,7 +36,6 @@ interface ArtifactsRepositoryInterface
      *
      * @param SearchCriteriaInterface $searchCriteria
      * @return SearchResults
-     * @throws LocalizedException
      */
     public function getList(SearchCriteriaInterface $searchCriteria): SearchResults;
 

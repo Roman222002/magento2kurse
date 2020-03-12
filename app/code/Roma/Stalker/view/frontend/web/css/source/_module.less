@@ -1,0 +1,64 @@
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  .stalker {
+    &.container {
+      position: relative;
+      #artifacts-container {
+        display: block;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 10;
+        width: 500px;
+        background-color: aliceblue;
+        height: 100%;
+        .artifacts.items {
+          position: relative;
+          padding: 40px 25px;
+          .close {
+            display: block;
+            position: absolute;
+            top: 40px;
+            right: 25px;
+            font-weight: 600;
+            color: #cd181d;
+          }
+          .label {
+            .artifacts-label {
+              color: teal;
+            }
+          }
+          .artifacts-list.wrapper {
+            padding: 25px;
+            ul.artifacts {
+              list-style-type: none;
+              .artifacts {
+                display: block;
+                .line {
+                  display: block;
+                  .label, .value {
+                    display: inline-block;
+                  }
+                  .label {
+                    color: darkmagenta;
+                  }
+                  .value {
+                    font-weight: 600;
+                    color: forestgreen;
+                  }
+                }
+              }
+            }
+            .show-more {
+              padding-left: 40px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}

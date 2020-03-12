@@ -1,0 +1,38 @@
+<div class="artifacts items">
+    <% if (artifacts && Object.keys(artifacts).length > 0) { %>
+    <a class="close" href="#">Close</a>
+    <strong class="label">
+        <span class="artifacts-label"><%- userName %>'s Artifacts:</span>
+    </strong>
+    <div class="artifacts-list wrapper">
+        <ul class="artifacts">
+            <% _.each(artifacts, function(artifacts, index) { %>
+            <% if (index > 1) { %>
+            <% return false; %>
+            <% } %>
+            <li class="artifacts entity-id" data-code="<%- artifacts.id %>">
+                        <span class="line artifacts-id">
+                            <span class="label">artifactsId: </span>
+                            <span class="value">"<%- artifacts.id %>"</span>
+                        </span>
+                <span class="line artifacts-title">
+                            <span class="label">artifactsTitle: </span>
+                            <span class="value">"<%- artifacts.title %>"</span>
+                        </span>
+                <span class="line description">
+                            <span class="label">Description: </span>
+                            <span class="value">"<%- artifacts.description %>"</span>
+                        </span>
+                <span class="line StalkerId">
+                            <span class="label">StalkerId: </span>
+                            <span class="value">"<%- artifacts.stalkerId %>"</span>
+                        </span>
+            </li>
+            <% }); %>
+        </ul>
+        <% if (Object.keys(artifacts).length > 2) { %>
+        <a href="<%- hrefMore %>" class="show-more">Show More...</a>
+        <% } %>
+    </div>
+    <% } %>
+</div>

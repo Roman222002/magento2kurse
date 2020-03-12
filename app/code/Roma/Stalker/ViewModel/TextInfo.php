@@ -27,7 +27,6 @@ class TextInfo implements ArgumentInterface
         $this->scopeConfig = $scopeConfig;
     }
 
-
     public function mainText()
     {
         $result = 'simple text';

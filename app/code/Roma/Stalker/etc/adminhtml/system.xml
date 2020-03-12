@@ -26,7 +26,7 @@
                 </field>
                 <field id="display_text" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>How old are you?</label>
-                    <validate>validate-number validate-length minimum-length-1 maximum-length-3</validate>
+                    <validate>validate-number required-entry validate-length minimum-length-1 maximum-length-3</validate>
                     <comment>This text will display on the frontend.</comment>
                     <source_model>Roma\Stalker\Model\Artifacts\Source\StalkerList</source_model>
                 </field>

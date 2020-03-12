@@ -6,9 +6,9 @@
             <arguments>
                 <argument name="our_view_model" xsi:type="object">Roma\Stalker\ViewModel\ExtraInfo</argument>
                 <argument name="our_text_model" xsi:type="object">Roma\Stalker\ViewModel\TextInfo</argument>
-
             </arguments>
             </block>
+            <block class="Roma\Stalker\Block\Stalker" name="custom.block" template="Roma_Stalker::main-stalker-template.phtml"/>
         </referenceContainer>
     </body>
 </page>

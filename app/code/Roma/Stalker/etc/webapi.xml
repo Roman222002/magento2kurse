@@ -6,6 +6,14 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+
+    <route url="/V1/test/artifacts/service/:stalkerId" method="GET">
+        <service class="Roma\Stalker\Api\ArtifactsService" method="getArtifactsList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
     <route url="/V1/save/stalkers/service/:stalkerId/grouping/nickname/name" method="POST">
     <service class="Roma\Stalker\Api\StalkerServiceInterface" method="setStalker"/>
     <resources>

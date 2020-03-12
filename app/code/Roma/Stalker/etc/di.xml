@@ -11,6 +11,10 @@
                 type="Roma\Stalker\Model\ArtefactsModel"/>
     <preference for="Roma\Stalker\Api\ArtifactsRepositoryInterface"
                 type="Roma\Stalker\Model\ArtifactsRepository"/>
+
+    <preference for="Roma\Stalker\Api\ArtifactsService"
+                type="Roma\Stalker\Model\ArtifactsServices"/>
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

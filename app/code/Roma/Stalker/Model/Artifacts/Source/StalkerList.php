@@ -62,7 +62,7 @@ class StalkerList implements OptionSourceInterface
                 ];
             }
         }
-        $options[] = ['label' => 'Default', 'value' => ''];
+       // $options[] = ['label' => 'Default', 'value' => ''];
 
         return $resultArray;
     }

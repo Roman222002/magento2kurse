@@ -9,7 +9,8 @@ $blockName=$block->getInLayout();
 $stalkerCollections = $block->getStalkerCollection();
 ?>
 <h1 class="my-block">Stalker shop!</h1>
-<div class="container">
+<div class="stalker container">
+    <?php if (!empty($stalkerCollections)): ?>
     <?php foreach ($stalkerCollections as $stalker): ?>
     <?php /** @var StalkerModel $stalker */ ?>
     <div class="stalker-id-<?=$stalker->getId() ?>">
@@ -19,8 +20,22 @@ $stalkerCollections = $block->getStalkerCollection();
         <h6 class="name">Name: <?=$stalker->getName() ?></h6>
         <h4 class="created-at">CreatedAt: <?=$stalker->getCreatedAt() ?></h4>
         <p class="link">
-            <a class="read-more" href="<?= $block->getUrl('stalker_route/index/artifacts', ['stalker_id' => $stalker->getId()]) ?>">See Stalker Artefacts</a>
+            <?php $href = $block->getStalkerUrl($stalker->getId()); ?>
+            <a class="read-more" data-mage-init='{
+                                            "getStalkerArtifacts": {
+                                                "stalkerId":"<?= $stalker->getId() ?>",
+                                                "userName":"<?= $stalker->getName() ?>"
+                                            }
+                                         }'
+               href="<?= $href ?>"><?= __('See Customer Cars of %1', $stalker->getName()) ?>
+            </a>
         </p>
-</div>
+    </div>
     <?php endforeach; ?>
+    <div id="artifacts-container" style="display: none"></div>
+    <?php else: ?>
+    <div class="message">
+        <h1 class="message-error error message"><?= __("There are no stalker found.") ?></h1>
+    </div>
+    <?php endif; ?>
 </div>

@@ -12,8 +12,9 @@ use Magento\Framework\Api\SortOrderBuilder;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
-use Roma\Stalker\Model\StalkerModel;
+
 use Roma\Stalker\Api\Data\StalkerInterface;
+use Roma\Stalker\Api\Data\ArtifactsInterface;
 use Roma\Stalker\Api\StalkerRepositoryInterface;
 use Roma\Stalker\Model\ResourceModel\Stalker\Collection as StalkerCollection;
 use Roma\Stalker\Model\ResourceModel\Stalker\CollectionFactory as StalkerCollectionFactoty;
@@ -44,7 +45,7 @@ class Stalker extends Template
      */
     private $sortOrderBuilder;
 
-
+    const ARTIFACTS_ACTION_ROUTE = 'stalker_route/index/artifacts';
     public function __construct(Context $context, StalkerCollectionFactoty $stalkerCollectionFactory,
                                 SearchCriteriaBuilder $searchCriteriaBuilder,
                                 StalkerRepositoryInterface $stalkerRepository,
@@ -84,5 +85,18 @@ class Stalker extends Template
      */
     public function getStalkerCollection(){
         return $this->stalkerCollection;
+    }
+    /**
+     * @param string|int $stalkerId
+     * @return string
+     */
+    public function getStalkerUrl($stalkerId)
+    {
+        return $this->getUrl(
+            self::ARTIFACTS_ACTION_ROUTE,
+            [
+                ArtifactsInterface::STALKER_ID => $stalkerId
+            ]
+        );
     }
 }
