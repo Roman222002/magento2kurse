@@ -9,28 +9,48 @@ $blockName=$block->getInLayout();
 $stalkerCollections = $block->getStalkerCollection();
 ?>
 <h1 class="my-block">Stalker shop!</h1>
+<div class="custom-app" data-bind="scope:'my-app'">
+    <input type="text" id="my-input" name="my_custom" placeholder="Enter List Amount" data-bind="value: myObservableCount">
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "my-app": {
+                            "component": "Roma_Stalker/js/filter",
+                            "listItemsSelector": ".list-item"
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>
 <div class="stalker container">
     <?php if (!empty($stalkerCollections)): ?>
     <?php foreach ($stalkerCollections as $stalker): ?>
     <?php /** @var StalkerModel $stalker */ ?>
-    <div class="stalker-id-<?=$stalker->getId() ?>">
+    <div class="list-item car-customer-id-<?=$stalker->getId() ?>">
         <h4 class="entity-id">EntityId: <?=$stalker->getId() ?></h4>
         <h3 class="nickname">Nickname: <?=$stalker->getNickname() ?></h3>
         <h5 class="grouping">Grouping: <?=$stalker->getGrouping() ?></h5>
         <h6 class="name">Name: <?=$stalker->getName() ?></h6>
         <h4 class="created-at">CreatedAt: <?=$stalker->getCreatedAt() ?></h4>
         <p class="link">
-            <?php $href = $block->getStalkerUrl($stalker->getId()); ?>
-            <a class="read-more" data-mage-init='{
-                                            "getStalkerArtifacts": {
-                                                "stalkerId":"<?= $stalker->getId() ?>",
-                                                "userName":"<?= $stalker->getName() ?>"
-                                            }
-                                         }'
-               href="<?= $href ?>"><?= __('See Customer Cars of %1', $stalker->getName()) ?>
-            </a>
+            <?php $href = $block->getStalkerUrl($stalker->getId()); ?>S
+            <a class="read-more link-stalker-id-<?= $stalker->getId() ?>" href="<?= $href ?>"><?= __('See Stalker Artifacts of %1', $stalker->getName()) ?></a>
         </p>
     </div>
+        <script type="text/x-magento-init">
+                {
+                    ".link-stalker-id-<?= $stalker->getId() ?>": {
+                        "getStalkerArtifacts": {
+                            "stalkerId":"<?= $stalker->getId() ?>",
+                            "stalkerName":"<?= $stalker->getName() ?>"
+                        }
+                    }
+                }
+            </script>
     <?php endforeach; ?>
     <div id="artifacts-container" style="display: none"></div>
     <?php else: ?>
