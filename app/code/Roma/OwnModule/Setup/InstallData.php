@@ -8,7 +8,7 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Tax\Api\TaxClassManagementInterface;
 
 /**
- * Class InstallData
+ * Class UpdateData
  */
 class InstallData implements InstallDataInterface
 {

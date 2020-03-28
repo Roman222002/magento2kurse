@@ -4,6 +4,7 @@
         <roma_stalker>
             <settings_image>
                 <use_images>1</use_images>
+                <show_happy_block>1</show_happy_block>
             </settings_image>
             <settings_stalker_list>
                 <main_stalker>2</main_stalker>
