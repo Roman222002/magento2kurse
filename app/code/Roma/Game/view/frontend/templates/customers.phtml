@@ -6,22 +6,33 @@ use Roma\Game\Model\ResourceModel\GameCustomer;
 $customerCollection=$block->getGameCustomersCollection();
 
 ?>
-
-<div class="container">
+<table class="customrs table" id="customers-data-table">
+    <caption class="table-title">Game Customers</caption>
+    <thead>
+    <tr>
+        <th scope="col" class="col_id">Entity ID</th>
+        <th scope="col" class="col_email">Email</th>
+        <th scope="col" class="col_name">Name</th>
+        <th scope="col" class="col_surname">Surname</th>
+        <th scope="col" class="col created_at">Created At</th>
+        <th scope="col" class="col actions">Games</th>
+    </tr>
+    </thead>
+    <tbody>
     <?php if (!empty($customerCollection)): ?>
-        <?php foreach ($customerCollection as $customer): ?>
-            <?php /** @var GameCustomer $customer */ ?>
-            <div class="car-id-<?= $customer->getId() ?>">
-                <h4 class="entity-id">EntityId: <?= $customer->getId() ?></h4>
-                <h5 class="email">Email: <?= $customer->getEmail() ?></h5>
-                <h6 class="name">Name: <?= $customer->getName() ?></h6>
-                <h6 class="surname">Surname: <?= $customer->getSurname() ?></h6>
-                <h6 class="created-at">Created_At: <?= $customer->getCreatedAt() ?></h6>
-                <p class="link">
-                    <a class="read-more" href="<?= $block->getGameCustomerUrl($customer->getId()) ?>">See Customer Games</a>
-                </p>
-            </div>
-            <hr>
-        <?php endforeach; ?>
+    <?php foreach ($customerCollection as $customer): ?>
+        <?php /** @var GameCustomer $customer */ ?>
+        <tr>
+            <td data-th="Id" class="col_id"><?php echo $customer->getId(); ?></td>
+            <td data-th="Email" class="col_email"><?php echo $customer->getEmail(); ?></td>
+            <td data-th="Name" class="col_name"><?php echo $customer->getName(); ?></td>
+            <td data-th="Surname" class="col_surname"><?php echo $customer->getSurname(); ?></td>
+            <td data-th="Date" class="col_created_at"><?php echo $customer->getCreatedAt(); ?></td>
+            <td data-th="Actions" class="col_actions">
+                <a class="read-more" href="<?= $block->getGameCustomerUrl($customer->getId()) ?>">See Customer Games</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
     <?php endif; ?>
-</div>
+    </tbody>
+</table>
