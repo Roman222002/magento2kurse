@@ -1,0 +1,27 @@
+<?php
+use Roma\Game\Model\ResourceModel\GameCustomer;
+/**
+ * @var Roma\Game\Block\GameCustomer $block
+ */
+$customerCollection=$block->getGameCustomersCollection();
+
+?>
+
+<div class="container">
+    <?php if (!empty($customerCollection)): ?>
+        <?php foreach ($customerCollection as $customer): ?>
+            <?php /** @var GameCustomer $customer */ ?>
+            <div class="car-id-<?= $customer->getId() ?>">
+                <h4 class="entity-id">EntityId: <?= $customer->getId() ?></h4>
+                <h5 class="email">Email: <?= $customer->getEmail() ?></h5>
+                <h6 class="name">Name: <?= $customer->getName() ?></h6>
+                <h6 class="surname">Surname: <?= $customer->getSurname() ?></h6>
+                <h6 class="created-at">Created_At: <?= $customer->getCreatedAt() ?></h6>
+                <p class="link">
+                    <a class="read-more" href="<?= $block->getGameCustomerUrl($customer->getId()) ?>">See Customer Games</a>
+                </p>
+            </div>
+            <hr>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>

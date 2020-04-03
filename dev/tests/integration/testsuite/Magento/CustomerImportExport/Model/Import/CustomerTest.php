@@ -214,7 +214,7 @@ class CustomerTest extends \PHPUnit\Framework\TestCase
     /**
      * Test importData() method (delete behavior)
      *
-     * @magentoDataFixture Magento/Customer/_files/import_export/customers.php
+     * @magentoDataFixture Magento/Customer/_files/import_export/customers.phtml
      */
     public function testDeleteData()
     {
@@ -316,7 +316,7 @@ class CustomerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @magentoDataFixture Magento/Customer/_files/import_export/customers.php
+     * @magentoDataFixture Magento/Customer/_files/import_export/customers.phtml
      */
     public function testValidateRowAttributeRequired()
     {

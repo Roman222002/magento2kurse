@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block class="Roma\Game\Block\GameCustomer" name="game.customers..block" template="Roma_Game::customers.phtml"/>
+            <block class="Roma\Game\Block\Games" name="custom.games.block" template="Roma_Game::customers-games.phtml"/>
         </referenceContainer>
     </body>
 </page>
