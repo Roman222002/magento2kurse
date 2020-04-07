@@ -11,6 +11,7 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Roma\Game\Api\Data\GameCustomerInterface;
 use Roma\Game\Api\Data\GameInterface;
+use Roma\Game\Model\GameModel;
 use Roma\Game\Model\ResourceModel\GameCustomer\Collection as GameCustomerCollection;
 use Roma\Game\Model\ResourceModel\GameCustomer\CollectionFactory as GameCustomerCollectionFactory;
 use Roma\Game\Api\GameCustomerRepositoryInterface;
@@ -75,10 +76,13 @@ class GameCustomer extends Template
      */
     protected function _prepareLayout()
     {
+        /** @var \Magento\Framework\App\Request\Http $request */
+        $request = $this->getRequest();
+        $gameCustomerSort = $request->getParam('sort');
         if ($this->gameCustomerCollection === null) {
             $sortOrder = $this->sortOrderBuilder
                 ->setField(GameCustomerInterface::CREATED_AT)
-                ->setDirection(SortOrder::SORT_ASC)
+                ->setDirection($gameCustomerSort)
                 ->create();
 
             /** @var SearchCriteria|SearchCriteriaInterface $searchCriteria */
