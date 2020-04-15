@@ -6,7 +6,6 @@ use Magento\Framework\View\Element\Template\Context;
 use Roma\Game\Model\GameModel;
 use Roma\Game\Model\ResourceModel\Game\Collection as GameCollection;
 use Roma\Game\Model\ResourceModel\Game\CollectionFactory as GameCollectionFactory;
-
 /**
  * Class Artifact
  */

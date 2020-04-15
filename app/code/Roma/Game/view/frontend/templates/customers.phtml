@@ -1,6 +1,7 @@
 <?php
 use Roma\Game\Model\ResourceModel\GameCustomer;
 use Roma\Game\ViewModel\GetConfig;
+use Roma\Game\ViewModel\CreateEvents;
 
 /**
  * @var Roma\Game\Block\GameCustomer $block
@@ -14,7 +15,7 @@ $customerValuePrint = $viewModel->getCustomersPrintValue();
 
 $i=1;
 ?>
-<table class="customrs table" id="customers-data-table">
+<table class="customers table" id="customers-data-table">
     <caption class="table-title">Game Customers</caption>
     <thead>
     <tr>

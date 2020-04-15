@@ -1,0 +1,13 @@
+<h1>Check license your game!</h1>
+<?php
+/**
+ * @var Roma\Game\Block\CheckGame $block
+ */
+$id = $block->getGameId();
+if($id===NULL)$id=1;
+?>
+<h2>ID = <?= $id ?></h2>
+<form action="checkGame" method="post">
+    <input required="true" name="checkGame" type="text" data-validate="number">
+    <input type="submit" value="Check!">
+</form>

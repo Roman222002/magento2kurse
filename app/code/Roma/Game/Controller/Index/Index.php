@@ -26,7 +26,7 @@ class Index extends Action{
         parent::__construct($context);
     }
     /**
-     * @return ResponseInterfacey|ResultInterface|Page
+     * @return ResponseInterface|ResultInterface|Page
      */
 
     /**

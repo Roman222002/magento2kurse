@@ -2,11 +2,13 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
+            <container name="main.additional" as="main" label="Main Additional">
             <block class="Roma\Game\Block\GameCustomer" name="game.customers..block" template="Roma_Game::customers.phtml">
                 <arguments>
                     <argument name="customer_value_print" xsi:type="object">Roma\Game\ViewModel\GetConfig</argument>
                 </arguments>
             </block>
+            </container>
         </referenceContainer>
     </body>
 </page>
