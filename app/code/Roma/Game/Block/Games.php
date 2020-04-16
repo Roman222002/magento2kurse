@@ -6,6 +6,8 @@ use Magento\Framework\View\Element\Template\Context;
 use Roma\Game\Model\GameModel;
 use Roma\Game\Model\ResourceModel\Game\Collection as GameCollection;
 use Roma\Game\Model\ResourceModel\Game\CollectionFactory as GameCollectionFactory;
+use Roma\Game\ViewModel\CreateEvents;
+
 /**
  * Class Artifact
  */
@@ -20,19 +22,26 @@ class Games extends Template
      * @var GameCollection|null
      */
     private $gameCollection;
+    /**
+     * @var CreateEvents
+     */
+    private $eventMaker;
 
     /**
      * Cars constructor.
      * @param Context $context
+     * @param CreateEvents $createEvents
      * @param GameCollectionFactory $gameCollectionFactory
      * @param array $data
      */
     public function __construct(
         Context $context,
+        CreateEvents $createEvents,
         GameCollectionFactory $gameCollectionFactory,
         array $data = []
     ) {
         parent::__construct($context, $data);
+        $this->eventMaker=$createEvents;
         $this->gameCollectionFactory = $gameCollectionFactory;
     }
 
@@ -60,6 +69,7 @@ class Games extends Template
      */
     public function getGameCollection()
     {
+        $this->eventMaker->get_game_collection($this->gameCollection);
         return $this->gameCollection;
     }
 }

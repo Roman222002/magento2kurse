@@ -10,5 +10,15 @@
             </block>
             </container>
         </referenceContainer>
+        <referenceContainer name="div.sidebar.main">
+            <container name="my.div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">
+                <container name="this.my.div.sidebar.additional" as="sidebar_additional" label="My Sidebar Additional"/>
+                <block class="Magento\Cms\Block\Block" name="roma_game_license_check_cms_block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">roma_game_check_block</argument>
+                </arguments>
+            </block>
+            </container>
+        </referenceContainer>
     </body>
 </page>

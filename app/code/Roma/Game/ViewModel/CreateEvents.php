@@ -16,7 +16,18 @@ class CreateEvents
 
     public function see_customer_games_event()
     {
-        $eventData = null;
         $this->eventManager->dispatch('see_customer_games');
+    }
+    public function check_game_license()
+    {
+        $this->eventManager->dispatch('check_game_license');
+    }
+    public function get_game_collection($array)
+    {
+        $this->eventManager->dispatch('get_game_collection',$array);
+    }
+    public function get_game_customer_collection($array)
+    {
+        $this->eventManager->dispatch('get_game_customer_collection',$array);
     }
 }

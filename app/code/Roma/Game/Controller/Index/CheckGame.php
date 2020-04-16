@@ -8,6 +8,8 @@ use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Setup\Exception;
+use Roma\Game\ViewModel\CreateEvents;
 
 /**
  * Class Cars
@@ -18,16 +20,25 @@ class CheckGame extends Action
      * @var PageFactory
      */
     private $resultPageFactory;
-
+    /**
+     * @var CreateEvents
+     */
+    private $eventMaker;
+    private $logger;
     /**
      * @param Context $context
+     * @param CreateEvents $createEvents
      * @param PageFactory $resultPageFactory
      */
     public function __construct(
         Context $context,
+        CreateEvents $createEvents,
+        \Psr\Log\LoggerInterface $logger,
         PageFactory $resultPageFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
+        $this->eventMaker=$createEvents;
+        $this->logger=$logger;
         parent::__construct($context);
     }
 
@@ -36,10 +47,17 @@ class CheckGame extends Action
      */
     public function execute()
     {
-        $post = (array)$this->getRequest()->getPost();
-        $resultPage = $this->resultPageFactory->create();
+        try{
+            $post = (array)$this->getRequest()->getPost();
+            $resultPage = $this->resultPageFactory->create();
+        }
+        catch (\Exception $e) {
+            $this->logger->critical($e->getMessage());
+        }
+
 
         if (!empty($post)) {
+            $this->eventMaker->check_game_license();
             // Retrieve your form data
             $checkGame = $post['checkGame'];
             // Display the succes form validation message

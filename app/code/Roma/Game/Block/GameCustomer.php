@@ -5,18 +5,15 @@ use Magento\Framework\Api\Search\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\Api\SearchResults;
-use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Api\SortOrderBuilder;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
-use Psr\Log\NullLogger;
-use Roma\Game\Api\Data\GameCustomerInterface;
 use Roma\Game\Api\Data\GameInterface;
 use Roma\Game\Model\ResourceModel\GameCustomer\Collection as GameCustomerCollection;
 use Roma\Game\Model\ResourceModel\GameCustomer\CollectionFactory as GameCustomerCollectionFactory;
 use Roma\Game\Api\GameCustomerRepositoryInterface;
-use \Psr\Log\LoggerInterface as LoggerInterface;
 use Roma\Game\ViewModel\CreateEvents;
+use Roma\Game\ViewModel\GetConfig;
 
 /**
  * Class GameCustomer
@@ -39,17 +36,20 @@ class GameCustomer extends Template
     private $searchCriteriaBuilder;
 
     /**
-     * @var gameCustomerRepositoryInterface
+     * @var GetConfig
+     */
+     private $config;
+    /**
+     * @var GameCustomerRepositoryInterface
      */
     private $gameCustomerRepository;
+
 
     /**
      * @var SortOrderBuilder
      */
     private $sortOrderBuilder;
-    /**
-     * @var LoggerInterface $logger
-     */
+
     private $logger;
 
     /**
@@ -66,7 +66,8 @@ class GameCustomer extends Template
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
      * @param GameCustomerRepositoryInterface $gameCustomerRepository
      * @param SortOrderBuilder $sortOrderBuilder
-     * @param LoggerInterface $logger
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param GetConfig $config
      * @param CreateEvents $event
      * @param array $data
      */
@@ -74,8 +75,8 @@ class GameCustomer extends Template
         GameCustomerCollectionFactory $gameCustomerCollectionFactory,
         SearchCriteriaBuilder $searchCriteriaBuilder,
         GameCustomerRepositoryInterface $gameCustomerRepository,
-        SortOrderBuilder $sortOrderBuilder,
-                                LoggerInterface  $logger,
+        SortOrderBuilder $sortOrderBuilder, \Psr\Log\LoggerInterface $logger,
+        GetConfig $config,
         CreateEvents $event,
         array $data = []
     ) {
@@ -85,6 +86,7 @@ class GameCustomer extends Template
         $this->sortOrderBuilder = $sortOrderBuilder;
         $this->gameCustomerRepository = $gameCustomerRepository;
         $this->event=$event;
+        $this->config=$config;
         $this->logger = $logger;
     }
 
@@ -101,12 +103,11 @@ class GameCustomer extends Template
             $request = $this->getRequest();
             $gameCustomerSortDirection = $request->getParam('sortDirection');
             $gameCustomerSortFiled = $request->getParam('sortField');
+            if($gameCustomerSortDirection==NULL) $gameCustomerSortDirection=$this->config->getSortOrder();;
+            if($gameCustomerSortFiled==NULL)$gameCustomerSortFiled=$this->config->getSortFiled();
         } catch (\Exception $e) {
         $this->logger->critical($e->getMessage());
     }
-        if($gameCustomerSortDirection==NULL)$gameCustomerSortDirection=SortOrder::SORT_ASC;
-        if($gameCustomerSortFiled==NULL)$gameCustomerSortFiled=GameCustomerInterface::ENTITY_ID;
-
         if ($this->gameCustomerCollection === null) {
             $sortOrder = $this->sortOrderBuilder
                 ->setField($gameCustomerSortFiled)
@@ -132,6 +133,7 @@ class GameCustomer extends Template
      */
     public function getGameCustomersCollection()
     {
+        $this->event->get_game_customer_collection($this->gameCustomerCollection);
         return $this->gameCustomerCollection;
     }
 
