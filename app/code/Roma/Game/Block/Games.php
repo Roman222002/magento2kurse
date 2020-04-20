@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Block;
 
 use Magento\Framework\View\Element\Template;
@@ -9,7 +10,7 @@ use Roma\Game\Model\ResourceModel\Game\CollectionFactory as GameCollectionFactor
 use Roma\Game\ViewModel\CreateEvents;
 
 /**
- * Class Artifact
+ * Class Games
  */
 class Games extends Template
 {
@@ -22,6 +23,7 @@ class Games extends Template
      * @var GameCollection|null
      */
     private $gameCollection;
+
     /**
      * @var CreateEvents
      */
@@ -50,6 +52,9 @@ class Games extends Template
      */
     protected function _prepareLayout()
     {
+        /**
+         * Magento\Framework\App\Request\Http - винести в use
+         */
         /** @var \Magento\Framework\App\Request\Http $request */
         $request = $this->getRequest();
         $gameCustomerId = (int)$request->getParam(GameModel::GAME_CUSTOMER_ID);

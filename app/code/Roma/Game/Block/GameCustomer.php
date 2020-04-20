@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Block;
 
 use Magento\Framework\Api\Search\SearchCriteriaInterface;
@@ -9,9 +10,9 @@ use Magento\Framework\Api\SortOrderBuilder;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Roma\Game\Api\Data\GameInterface;
+use Roma\Game\Api\GameCustomerRepositoryInterface;
 use Roma\Game\Model\ResourceModel\GameCustomer\Collection as GameCustomerCollection;
 use Roma\Game\Model\ResourceModel\GameCustomer\CollectionFactory as GameCustomerCollectionFactory;
-use Roma\Game\Api\GameCustomerRepositoryInterface;
 use Roma\Game\ViewModel\CreateEvents;
 use Roma\Game\ViewModel\GetConfig;
 
@@ -39,17 +40,20 @@ class GameCustomer extends Template
      * @var GetConfig
      */
      private $config;
+
     /**
      * @var GameCustomerRepositoryInterface
      */
     private $gameCustomerRepository;
-
 
     /**
      * @var SortOrderBuilder
      */
     private $sortOrderBuilder;
 
+    /**
+     * А тут що ?
+     */
     private $logger;
 
     /**
@@ -60,13 +64,13 @@ class GameCustomer extends Template
     const GAME_ACTION_ROUTE = 'game_route/index/games';
 
     /**
-     * Game Customer constructor.
+     * Game Customer constructor. - не критично, але лишнє
      * @param Context $context
      * @param GameCustomerCollectionFactory $gameCustomerCollectionFactory
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
      * @param GameCustomerRepositoryInterface $gameCustomerRepository
      * @param SortOrderBuilder $sortOrderBuilder
-     * @param \Psr\Log\LoggerInterface $logger
+     * @param \Psr\Log\LoggerInterface $logger - це треба було винести в use
      * @param GetConfig $config
      * @param CreateEvents $event
      * @param array $data
@@ -75,7 +79,7 @@ class GameCustomer extends Template
         GameCustomerCollectionFactory $gameCustomerCollectionFactory,
         SearchCriteriaBuilder $searchCriteriaBuilder,
         GameCustomerRepositoryInterface $gameCustomerRepository,
-        SortOrderBuilder $sortOrderBuilder, \Psr\Log\LoggerInterface $logger,
+        SortOrderBuilder $sortOrderBuilder, \Psr\Log\LoggerInterface $logger, // форматування
         GetConfig $config,
         CreateEvents $event,
         array $data = []
@@ -85,8 +89,8 @@ class GameCustomer extends Template
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         $this->sortOrderBuilder = $sortOrderBuilder;
         $this->gameCustomerRepository = $gameCustomerRepository;
-        $this->event=$event;
-        $this->config=$config;
+        $this->event = $event;
+        $this->config = $config;
         $this->logger = $logger;
     }
 
@@ -95,7 +99,10 @@ class GameCustomer extends Template
      */
     protected function _prepareLayout()
     {
-        $gameCustomerSortDirection=Null;
+        /**
+         * Форматування ріже мені очі
+         */
+        $gameCustomerSortDirection=Null; // використовуй просто null, а то тут то Null, то NULL
         $gameCustomerSortFiled=Null;
         try {
             /** @var \Magento\Framework\App\Request\Http $request */
@@ -125,6 +132,7 @@ class GameCustomer extends Template
                 $this->gameCustomerCollection = $searchResults->getItems();
             }
         }
+
         return parent::_prepareLayout();
     }
 

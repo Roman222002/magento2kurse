@@ -13,6 +13,7 @@ class AddData implements DataPatchInterface
 {
     const GAME_CUSTOMER_TABLE = 'game_customer_table';
     const GAME_TABLE = 'game_table';
+
     /**
      * @var ModuleDataSetupInterface
      */
@@ -30,8 +31,7 @@ class AddData implements DataPatchInterface
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
         LoggerInterface $logger
-    )
-    {
+    ) {
         $this->moduleDataSetup = $moduleDataSetup;
         $this->logger = $logger;
     }
@@ -126,6 +126,13 @@ class AddData implements DataPatchInterface
         $this->moduleDataSetup->startSetup();
         echo 'Roma_Game:PutDataIntoGameTable:Data:startSetup' . "\r\n";
 
+        /**
+         * 7. для набивки даних у таблиці використовувати тільки Patch/Data !!!
+         * Ну і обов'язково ваші фабрики моделей і репозиторії для створення моделей,
+         * з подальшим присвоєнням даних і збереженням цих моделей за допомогою репозиторія.
+         *
+         * А тут ти використав прямий інсерт через $connection
+         */
         try {
             $connection = $this->moduleDataSetup->getConnection();
             foreach ($data_customers as $row) {

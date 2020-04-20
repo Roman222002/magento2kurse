@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;

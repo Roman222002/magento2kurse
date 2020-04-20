@@ -1,13 +1,23 @@
 <?php
+
 namespace Roma\Game\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchResults;
+
+/**
+ * Ці класи ніде тут в інтерфейсі не використовуються, видалити або добавити
+ * туди, де ці виключення викидуються
+ */
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
+
 use Roma\Game\Api\Data\GameCustomerInterface;
 
+/**
+ * Interface GameCustomerRepositoryInterface
+ */
 interface GameCustomerRepositoryInterface{
     /**
      * @param GameCustomerInterface $customer
@@ -39,6 +49,4 @@ interface GameCustomerRepositoryInterface{
      */
 
     public function deleteById(int $customerId): bool;
-
-
 }

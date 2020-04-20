@@ -1,18 +1,25 @@
 <?php
+
 namespace Roma\Game\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
+
+/**
+ * Ці класи ніде тут в контроллері не використовуються, видалити або добавити
+ * туди, де вони використовуються
+ */
 use Magento\Framework\Controller\ResultFactory;
+use Magento\Setup\Exception;
+
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
-use Magento\Setup\Exception;
 use Roma\Game\ViewModel\CreateEvents;
 
 /**
- * Class Cars
+ * Class CheckGame
  */
 class CheckGame extends Action
 {
@@ -24,6 +31,10 @@ class CheckGame extends Action
      * @var CreateEvents
      */
     private $eventMaker;
+
+    /**
+     * А тут що ?
+     */
     private $logger;
     /**
      * @param Context $context
@@ -33,7 +44,7 @@ class CheckGame extends Action
     public function __construct(
         Context $context,
         CreateEvents $createEvents,
-        \Psr\Log\LoggerInterface $logger,
+        \Psr\Log\LoggerInterface $logger, // винести в use
         PageFactory $resultPageFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;

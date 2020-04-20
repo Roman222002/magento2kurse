@@ -4,6 +4,12 @@ namespace Roma\Game\Model\Lists;
 use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Data\OptionSourceInterface;
 use Roma\Game\Api\Data\GameCustomerInterface as Game;
+
+/**
+ * Class ListField - форматування знову ріже мені сам знаєш що )
+ *
+ * Де Doc блоки?
+ */
 class ListField implements OptionSourceInterface{
 
     public function toOptionArray()

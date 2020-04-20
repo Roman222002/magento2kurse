@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Api\Data;
 
 /**
@@ -23,6 +24,7 @@ interface GameInterface
 
     /**
      * Get game entity id
+     *
      * @return int
      */
     public function getId();
@@ -85,6 +87,7 @@ interface GameInterface
 
     /**
      * Set Games Id
+     *
      * @param int $gameId
      * @return GameInterface
      */
@@ -108,6 +111,7 @@ interface GameInterface
 
     /**
      * Set game price
+     *
      * @param int $price
      * @return GameInterface
      */

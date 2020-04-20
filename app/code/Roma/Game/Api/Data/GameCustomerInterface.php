@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Api\Data;
 
 /**

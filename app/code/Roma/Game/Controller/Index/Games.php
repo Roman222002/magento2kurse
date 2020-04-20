@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Controller\Index;
 
 use Magento\Framework\App\Action\Action;

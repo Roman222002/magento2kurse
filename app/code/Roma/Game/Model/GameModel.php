@@ -1,10 +1,18 @@
 <?php
+
 namespace Roma\Game\Model;
 
 use Magento\Framework\Model\AbstractModel;
 use Roma\Game\Api\Data\GameInterface;
 use Roma\Game\Model\ResourceModel\Game as GameResourceModel;
 
+/**
+ * Class GameModel - форматування ^-^
+ *
+ * де Doc блоки?
+ *
+ * Навіщо тут ці TODO?
+ */
 class GameModel extends AbstractModel implements GameInterface
 {
 

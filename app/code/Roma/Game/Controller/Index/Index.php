@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
@@ -11,11 +12,13 @@ use Magento\Framework\View\Result\PageFactory;
 /**
  * Class Index
  */
-class Index extends Action{
+class Index extends Action
+{
     /**
      * @var PageFactory
      */
     private $resultPageFactory;
+
     /**
      * @param Context $context
      * @param PageFactory $resultPageFactory
@@ -25,7 +28,10 @@ class Index extends Action{
         $this->resultPageFactory=$resultPageFactory;
         parent::__construct($context);
     }
+
     /**
+     * Це що тут робить? :)
+     *
      * @return ResponseInterface|ResultInterface|Page
      */
 

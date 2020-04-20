@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Model;
 
 use Magento\Framework\Api\SearchResults;
@@ -7,6 +8,10 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
+
+/**
+ * Не використовується ніде
+ */
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Roma\Game\Api\GameCustomerRepositoryInterface;
@@ -20,6 +25,11 @@ use Roma\Game\Model\ResourceModel\GameCustomer as GameCustomerResource;
  * Class GameCustomerRepository
  */
 
+/**
+ * Class GameCustomerRepository - форматування ^-^
+ *
+ * Навіщо тут ці TODO?
+ */
 class GameCustomerRepository implements GameCustomerRepositoryInterface
 {
     /**
@@ -60,8 +70,7 @@ class GameCustomerRepository implements GameCustomerRepositoryInterface
         GameCustomerResource $resource,
         SearchResultsInterfaceFactory $searchResultsFactory,
         CollectionProcessorInterface $collectionProcessor
-    )
-    {
+    ) {
         $this->gameCustomerModelFactory = $gameCustomerModelFactory;
         $this->gameCustomerCollectionFactory = $gameCustomerCollectionFactory;
         $this->resource = $resource;
