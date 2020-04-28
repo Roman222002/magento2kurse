@@ -1,8 +1,9 @@
 <?php
+
 namespace Roma\Game\Api\Data;
 
 /**
- * Interface ArtifactsInterface
+ * Interface GameInterface
  */
 interface GameInterface
 {
@@ -23,6 +24,7 @@ interface GameInterface
 
     /**
      * Get game entity id
+     *
      * @return int
      */
     public function getId();
@@ -35,7 +37,8 @@ interface GameInterface
     public function getGameCustomerId();
 
     /**
-     * Get Games Id
+     * Get game Id
+     *
      * @return mixed
      */
     public function getGameId();
@@ -48,7 +51,7 @@ interface GameInterface
     public function getTitle();
 
     /**
-     * Get artifacts description
+     * Get game description
      *
      * @return string
      */
@@ -63,6 +66,7 @@ interface GameInterface
 
     /**
      * Get Price
+     *
      * @return mixed
      */
     public function  getPrice();
@@ -76,7 +80,7 @@ interface GameInterface
     public function setId($id);
 
     /**
-     * Set Customer id
+     * Set customer id
      *
      * @param int $customerId
      * @return GameInterface
@@ -84,7 +88,8 @@ interface GameInterface
     public function setGameCustomerId(int $customerId): GameInterface;
 
     /**
-     * Set Games Id
+     * Set game id
+     *
      * @param int $gameId
      * @return GameInterface
      */
@@ -99,7 +104,7 @@ interface GameInterface
     public function setTitle(string $title): GameInterface;
 
     /**
-     * Set artifacts description
+     * Set game description
      *
      * @param string $description
      * @return GameInterface
@@ -108,6 +113,7 @@ interface GameInterface
 
     /**
      * Set game price
+     *
      * @param int $price
      * @return GameInterface
      */
@@ -116,9 +122,8 @@ interface GameInterface
     /**
      * Set created at date
      *
-     * @param \DateTime $createdAt
+     * @param $createdAt
      * @return GameInterface
      */
-    public function setCreatedAt(\DateTime $createdAt): GameInterface;
-
+    public function setCreatedAt($createdAt): GameInterface;
 }

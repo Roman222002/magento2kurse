@@ -1,11 +1,12 @@
 <?php
+
 namespace Roma\Game\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 use Roma\Game\Model\GameModel;
 
 /**
- * Class CarResource
+ * Class Game
  */
 class Game extends AbstractDb
 {

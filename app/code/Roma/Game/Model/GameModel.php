@@ -1,10 +1,14 @@
 <?php
+
 namespace Roma\Game\Model;
 
 use Magento\Framework\Model\AbstractModel;
 use Roma\Game\Api\Data\GameInterface;
 use Roma\Game\Model\ResourceModel\Game as GameResourceModel;
 
+/**
+ * Class GameModel
+ */
 class GameModel extends AbstractModel implements GameInterface
 {
 
@@ -15,7 +19,6 @@ class GameModel extends AbstractModel implements GameInterface
 
     public function getId()
     {
-        // TODO: Implement getId() method.
         return $this->getData(self::ENTITY_ID);
     }
 
@@ -24,7 +27,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function getGameCustomerId()
     {
-        // TODO: Implement getGameCustomerId() method.
         return $this->getData(self::GAME_CUSTOMER_ID);
     }
 
@@ -33,7 +35,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function getGameId()
     {
-        // TODO: Implement getGameId() method.
         return $this->getData(self::GAME_ID);
     }
 
@@ -42,7 +43,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function getTitle()
     {
-        // TODO: Implement getTitle() method.
         return $this->getData(self::TITLE);
     }
 
@@ -51,7 +51,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function getDescription()
     {
-        // TODO: Implement getDescription() method.
         return $this->getData(self::DESCRIPTION);
     }
 
@@ -60,7 +59,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function getCreatedAt()
     {
-        // TODO: Implement getCreatedAt() method.
         return $this->getData(self::CREATED_AT);
     }
 
@@ -69,7 +67,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function getPrice()
     {
-        // TODO: Implement getPrice() method.
         return $this->getData(self::PRICE);
     }
 
@@ -78,7 +75,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function setGameCustomerId(int $customerId): GameInterface
     {
-        // TODO: Implement setGameCustomerId() method.
         return $this->setData(self::GAME_CUSTOMER_ID, $customerId);
     }
 
@@ -87,7 +83,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function setGameId(int $gameId): GameInterface
     {
-        // TODO: Implement setGameId() method.
         return $this->setData(self::GAME_ID, $gameId);
     }
 
@@ -96,7 +91,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function setTitle(string $title): GameInterface
     {
-        // TODO: Implement setTitle() method.
         return $this->setData(self::TITLE, $title);
     }
 
@@ -105,7 +99,6 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function setDescription(string $description): GameInterface
     {
-        // TODO: Implement setDescription() method.
         return $this->setData(self::DESCRIPTION, $description);
     }
 
@@ -114,16 +107,14 @@ class GameModel extends AbstractModel implements GameInterface
      */
     public function setPrice(int $price): GameInterface
     {
-        // TODO: Implement setPrice() method.
         return $this->setData(self::PRICE, $price);
     }
 
     /**
      * @inheritDoc
      */
-    public function setCreatedAt(\DateTime $createdAt): GameInterface
+    public function setCreatedAt($createdAt): GameInterface
     {
-        // TODO: Implement setCreatedAt() method.
         return $this->setData(self::CREATED_AT, $createdAt);
     }
 }

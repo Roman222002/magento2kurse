@@ -1,9 +1,15 @@
 <?php
+
 namespace Roma\Game\Model\Lists;
 
-use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Data\OptionSourceInterface;
 use Roma\Game\Api\Data\GameCustomerInterface as Game;
+
+/**
+ * Class ListField
+ *
+ * Generating a list with a field from the customers table for sorting
+ */
 class ListField implements OptionSourceInterface{
 
     public function toOptionArray()
@@ -23,7 +29,7 @@ class ListField implements OptionSourceInterface{
         $resultArray[] = [
             'label' => GAME::CREATED_AT,
             'value' => GAME::CREATED_AT];
-        return $resultArray;
 
+        return $resultArray;
     }
 }

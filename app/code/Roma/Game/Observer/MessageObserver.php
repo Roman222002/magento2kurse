@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Observer;
 
 use Magento\Framework\Event\Observer;
@@ -29,8 +30,6 @@ class MessageObserver implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        $event = $observer->getEvent();
-
         $message = "You are going to see customer`s games now";
         $this->messageManager->addSuccessMessage($message);
     }

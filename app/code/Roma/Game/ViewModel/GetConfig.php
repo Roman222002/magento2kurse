@@ -1,12 +1,17 @@
 <?php
 
-
 namespace Roma\Game\ViewModel;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Store\Model\ScopeInterface;
+use Psr\Log\LoggerInterface;
 
+/**
+ * Getting data from scope config
+ *
+ * Class GetConfig
+ */
 class GetConfig implements ArgumentInterface
 {
     const PRINT_CUSTOMER = 'game_shop_customer_config/settings_output/how_customer_print';
@@ -18,13 +23,18 @@ class GetConfig implements ArgumentInterface
      */
     private $scopeConfig;
 
+    /**
+     * @var LoggerInterface
+     */
     private $logger;
+
     /**
      * @param ScopeConfigInterface $scopeConfig
+     * @param LoggerInterface $logger
      */
     public function __construct(
         ScopeConfigInterface $scopeConfig,
-        \Psr\Log\LoggerInterface $logger
+        LoggerInterface $logger
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->logger=$logger;
@@ -44,6 +54,7 @@ class GetConfig implements ArgumentInterface
         } catch (\Exception $e) {
             $this->logger->critical($e->getMessage());
         }
+
         return (int)$result;
     }
 
@@ -61,6 +72,7 @@ class GetConfig implements ArgumentInterface
         } catch (\Exception $e) {
             $this->logger->critical($e->getMessage());
         }
+
         return $result;
     }
 

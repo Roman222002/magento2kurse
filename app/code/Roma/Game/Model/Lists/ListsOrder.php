@@ -1,9 +1,15 @@
 <?php
+
 namespace Roma\Game\Model\Lists;
 
 use Magento\Framework\Api\SortOrder;
 use Magento\Framework\Data\OptionSourceInterface;
 
+/**
+ * Class ListsOrder
+ *
+ * Generating a list with a fields for the direction of sorting of customers
+ */
 class ListsOrder implements OptionSourceInterface{
 
     public function toOptionArray()
@@ -14,6 +20,7 @@ class ListsOrder implements OptionSourceInterface{
         $resultArray[] = [
             'label' => 'DESC',
             'value' => SortOrder::SORT_DESC];
+
         return $resultArray;
     }
 }
