@@ -7,11 +7,9 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
-use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Roma\Game\Api\GameCustomerRepositoryInterface;
 use Roma\Game\Api\Data\GameCustomerInterface;
-use Roma\Game\Model\GameCustomerModelFactory;
 use Roma\Game\Model\ResourceModel\GameCustomer\Collection;
 use Roma\Game\Model\ResourceModel\GameCustomer\CollectionFactory as GameCustomerCollectionFactory;
 use Roma\Game\Model\ResourceModel\GameCustomer as GameCustomerResource;
@@ -19,7 +17,6 @@ use Roma\Game\Model\ResourceModel\GameCustomer as GameCustomerResource;
 /**
  * Class GameCustomerRepository
  */
-
 class GameCustomerRepository implements GameCustomerRepositoryInterface
 {
     /**
@@ -60,8 +57,7 @@ class GameCustomerRepository implements GameCustomerRepositoryInterface
         GameCustomerResource $resource,
         SearchResultsInterfaceFactory $searchResultsFactory,
         CollectionProcessorInterface $collectionProcessor
-    )
-    {
+    ){
         $this->gameCustomerModelFactory = $gameCustomerModelFactory;
         $this->gameCustomerCollectionFactory = $gameCustomerCollectionFactory;
         $this->resource = $resource;
@@ -71,11 +67,9 @@ class GameCustomerRepository implements GameCustomerRepositoryInterface
 
     /**
      * @inheritDoc
-     * @throws CouldNotSaveException
      */
     public function save(GameCustomerInterface $gameCustomer): GameCustomerInterface
     {
-        // TODO: Implement save() method.
         try {
             /** @var  GameModel|GameCustomerInterface $gameCustomer */
             $this->resource->save($gameCustomer);
@@ -88,11 +82,9 @@ class GameCustomerRepository implements GameCustomerRepositoryInterface
 
     /**
      * @inheritDoc
-     * @throws NoSuchEntityException
      */
     public function getById(int $gameCustomerId): GameCustomerInterface
     {
-        // TODO: Implement getById() method.
         /** @var  GameModel|GameCustomerInterface $gameCustomer */
         $gameCustomer = $this->gameCustomerModelFactory->create();
         $gameCustomer->load($gameCustomerId);
@@ -117,6 +109,7 @@ class GameCustomerRepository implements GameCustomerRepositoryInterface
         $searchResults->setSearchCriteria($criteria);
         $searchResults->setItems($collection->getItems());
         $searchResults->setTotalCount($collection->getSize());
+
         return $searchResults;
     }
 
@@ -126,7 +119,6 @@ class GameCustomerRepository implements GameCustomerRepositoryInterface
      */
     public function delete(GameCustomerInterface $gameCustomer): bool
     {
-        // TODO: Implement delete() method.
         try {
             /** @var GameModel $gameCustomer */
             $this->resource->delete($gameCustomer);
@@ -143,7 +135,6 @@ class GameCustomerRepository implements GameCustomerRepositoryInterface
      */
     public function deleteById(int $gameCustomerId): bool
     {
-        // TODO: Implement deleteById() method.
         try {
             $delete = $this->delete($this->getById($gameCustomerId));
         }catch (\Exception $exception){

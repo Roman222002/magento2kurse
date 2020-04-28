@@ -1,33 +1,75 @@
 <?php
+
 namespace Roma\Game\ViewModel;
+
+use Magento\Framework\Event\Manager;
+
+/**
+ * Creating events and put data into them
+ *
+ * Class CreateEvents
+ */
 class CreateEvents
 {
     /**
-     * @var EventManager
+     * @var Manager
      */
     private $eventManager;
 
+    /**
+     * @param Manager $eventManager
+     */
     public function __construct(
-        \Magento\Framework\Event\Manager $eventManager
-    )
-    {
+        Manager $eventManager
+    ){
         $this->eventManager = $eventManager;
     }
 
-    public function see_customer_games_event()
+    /**
+     * @param $id
+     */
+    public function getGameCustomerId($id)
     {
-        $this->eventManager->dispatch('see_customer_games');
+        $eventData = [
+            'game_customer_id' => $id
+        ];
+
+        $this->eventManager->dispatch('get_game_customer_id', $eventData);
     }
-    public function check_game_license()
+
+    /**
+     * @param $id
+     */
+    public function getGameID($id)
     {
-        $this->eventManager->dispatch('check_game_license');
+        $eventData = [
+            'game_id' => $id
+        ];
+
+        $this->eventManager->dispatch('get_game_id', $eventData);
     }
-    public function get_game_collection($array)
+
+    /**
+     * @param $array
+     */
+    public function getGetGameCollection($array)
     {
-        $this->eventManager->dispatch('get_game_collection',$array);
+        $eventData = [
+            'customer_collection' => $array
+        ];
+
+        $this->eventManager->dispatch('get_game_collection', $eventData);
     }
-    public function get_game_customer_collection($array)
+
+    /**
+     * @param $array
+     */
+    public function getGameCustomerCollection($array)
     {
-        $this->eventManager->dispatch('get_game_customer_collection',$array);
+        $eventData = [
+            'customer_collection' => $array
+        ];
+
+        $this->eventManager->dispatch('get_game_customer_collection', $eventData);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;
@@ -14,7 +15,7 @@ use Roma\Game\Api\Data\GameInterface;
 interface GameRepositoryInterface
 {
     /**
-     * Save Games entity
+     * Save game entity
      *
      * @param GameInterface $game
      * @return GameInterface
@@ -23,7 +24,7 @@ interface GameRepositoryInterface
     public function save(GameInterface $game): GameInterface;
 
     /**
-     * Get Games by its id
+     * Get game by its id
      *
      * @param int $gameId
      * @return GameInterface
@@ -32,7 +33,7 @@ interface GameRepositoryInterface
     public function getById(int $gameId): GameInterface;
 
     /**
-     * Get Games entities list
+     * Get games entities list
      *
      * @param SearchCriteriaInterface $searchCriteria
      * @return SearchResults
@@ -40,7 +41,7 @@ interface GameRepositoryInterface
     public function getList(SearchCriteriaInterface $searchCriteria): SearchResults;
 
     /**
-     * Delete Games entity
+     * Delete game entity
      *
      * @param GameInterface $game
      * @return bool true on success
@@ -49,7 +50,7 @@ interface GameRepositoryInterface
     public function delete(GameInterface $game): bool;
 
     /**
-     * Delete Games entity by id
+     * Delete game entity by id
      *
      * @param int $gameId
      * @return bool true on success

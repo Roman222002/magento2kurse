@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Model;
 
 use Magento\Framework\Api\SearchResults;
@@ -7,11 +8,9 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
-use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Roma\Game\Api\GameRepositoryInterface;
 use Roma\Game\Api\Data\GameInterface;
-use Roma\Game\Model\GameModelFactory;
 use Roma\Game\Model\ResourceModel\Game\Collection;
 use Roma\Game\Model\ResourceModel\Game\CollectionFactory as GameCollectionFactory;
 use Roma\Game\Model\ResourceModel\Game as GameResource;
@@ -59,8 +58,7 @@ class GameRepository implements GameRepositoryInterface
         GameResource $resource,
         SearchResultsInterfaceFactory $searchResultsFactory,
         CollectionProcessorInterface $collectionProcessor
-    )
-    {
+    ){
         $this->gameModelFactory = $gameModelFactory;
         $this->gameCollectionFactory = $gameCollectionFactory;
         $this->resource = $resource;
@@ -73,7 +71,6 @@ class GameRepository implements GameRepositoryInterface
      */
     public function save(GameInterface $game): GameInterface
     {
-        // TODO: Implement save() method.
         try {
             /** @var  GameModel|GameInterface $game */
             $this->resource->save($game);
@@ -89,7 +86,6 @@ class GameRepository implements GameRepositoryInterface
      */
     public function getById(int $gameId): GameInterface
     {
-        // TODO: Implement getById() method.
         /** @var  GameModel|GameInterface $game */
         $game = $this->gameModelFactory->create();
         $game->load($gameId);
@@ -114,6 +110,7 @@ class GameRepository implements GameRepositoryInterface
         $searchResults->setSearchCriteria($criteria);
         $searchResults->setItems($collection->getItems());
         $searchResults->setTotalCount($collection->getSize());
+
         return $searchResults;
     }
 
@@ -122,7 +119,6 @@ class GameRepository implements GameRepositoryInterface
      */
     public function delete(GameInterface $game): bool
     {
-        // TODO: Implement delete() method.
         try {
             /** @var GameModel $game */
             $this->resource->delete($game);
@@ -138,12 +134,12 @@ class GameRepository implements GameRepositoryInterface
      */
     public function deleteById(int $gameId): bool
     {
-        // TODO: Implement deleteById() method.
         try {
             $delete = $this->delete($this->getById($gameId));
         }catch (\Exception $exception){
             throw new CouldNotDeleteException(__($exception->getMessage()));
         }
+
         return $delete;
     }
 }

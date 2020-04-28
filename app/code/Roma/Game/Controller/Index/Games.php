@@ -1,4 +1,5 @@
 <?php
+
 namespace Roma\Game\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
@@ -9,7 +10,7 @@ use Magento\Framework\View\Result\Page;
 use Magento\Framework\View\Result\PageFactory;
 
 /**
- * Class Cars
+ * Class Games
  */
 class Games extends Action
 {
